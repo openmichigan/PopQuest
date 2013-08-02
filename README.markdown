@@ -1,5 +1,5 @@
 # PopQuest
-## an open, lightweight tool for displaying annotated, captioned educational videos
+### an open, lightweight tool for displaying annotated, captioned educational videos
  
  ---
 
