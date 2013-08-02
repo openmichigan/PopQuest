@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Awesome Popcorn MSIS Hackday Project</title>
+
+    <!-- <script type="text/javascript" src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script> -->
+    <script type="text/javascript" src="js/popcorn-complete.min.js"></script>
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+    <script type="text/javascript" src="mediaelement/build/jquery.js"></script>
+    <script type="text/javascript" src="mediaelement/build/mediaelement-and-player.js"></script>
+    <script type="text/javascript" src="mediaelement/build/mep-feature-markers.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="mediaelement/build/mediaelementplayer.css"/>
+
+    <style>
+      body { font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace; background-color:#02254a;}
+      div.abovecols {float:center; text-align: center; color: #f7f743; font-size: 32px;}
+      div.twocol { width: 850px; min-height: 600px; margin: 0 auto; border: 0 solid black; margin-top: 20px; }
+      div.left, div.right { float: left; display: inline; padding: 5px; min-height: 600px; }
+      #subtitlediv { height: 600px; overflow: scroll; background-color: #f7f743; }
+      div.left { width:300px; }
+      div.right { width:500px; }
+      div.interactivediv { padding-top: 60px; padding-left: 50px; background-color: #f7f743; min-height: 240px; }
+
+      div.st { margin-top: 12px; cursor: pointer; padding: 10px 4px; border-bottom: 2px solid black; }
+      video { background-color: black; }
+
+      .stbold { font-weight: bold; font-family: sans-serif; }
+      .stitalic { font-style: italic; }
+    </style>
+  </head>
+
+  <body>
+    <div class="abovecols"><b>POP QUEST</b><br/><font size="4"><i>A lightweight tool for Interactive Educational Videos</i></font></div>
+    <div class="twocol">
+      <div id="subtitlediv" class="left"></div>
+      <div class="right">
+        <div class="videodiv">
+          <video height="300" width="500" id="ourvideo" controls="controls">
+            <source src="HackDay-videoLecturesPopcorn/__Assets/Content/Videos/PCR - 7min/Real-Time Polymerase Chain Reaction (PCR) - Multi-Lingual Captions.mp4">
+          </video>
+        </div>
+        <div class="interactivediv">
+          <div id="question1" class="question 211" style="display: none;">
+            <form name="answer" action="">
+             When amplicons are produced, what is released? <br/>
+              <input name="question1" type="radio" value="A">Fluorescent marker<br />
+              <input name="question1" type="radio" value="B">Fluorescent quencher<br />
+              <input name="question1" type="radio" value="C">Both<br />
+              <input name="question1" type="radio" value="D">None of the above<br />
+              <input class="C" type="button" value="Submit">
+            </form>
+          </div>
+          
+              
+          <div id="question2" class="question 217" style="display: none;">
+            <form name="answer" action="">
+             An amplicon is a strand of DNA or RNA that has been:<br/>
+              <input name="question2" type="radio" value="A">Naturally amplified<br />
+              <input name="question2" type="radio" value="B">Artificially amplified<br />
+              <input name="question2" type="radio" value="C">Naturally replicated<br />
+              <input name="question2" type="radio" value="D">Artificially replicated<br />
+              <input name="question2" type="radio" value="E">All of the above<br />
+              <input class="E" type="button" value="Submit">
+            </form>
+          </div>
+          
+          <div id="question3" class="question 281" style="display: none;">
+            <form name="answer" action="">
+             If the number of copies of targeted DNA samples is 1,024 or more, fluorescent energy can be determined in how many fewer rounds of PCR in a thermocycler equipped with a fluorometer? <br/>
+              <input name="question3" type="radio" value="A">5<br />
+              <input name="question3" type="radio" value="B">10<br />
+              <input name="question3" type="radio" value="C">32<br />
+              <input name="question3" type="radio" value="D">40<br />
+              <input class="B" type="button" value="Submit">
+            </form>
+          </div>
+          
+          <div id="question4" class="question 295" style="display: none;">
+            <form name="answer" action="">
+            The amount of specific DNA in a clinical sample is determined by a reference to the round of polymerase chain reaction (PCR) in which the amount of fluorescence first crosses the threshold of detection. <br/>
+              <input name="question4" type="radio" value="True">True<br />
+              <input name="question4" type="radio" value="False">False<br />
+              <input class="True" type="button" value="Submit">
+            </form>
+          </div>
+       
+          <div id="question5" class="question 319" style="display: none;">
+            <form name="answer" action="">
+            The Real-Time Polymerase Chain Reaction is used to quantify the burden of viruses in the blood of patients with viruses, e.g. hepatitis B, HIV.<br/>
+              <input name="question5" type="radio" value="True">True<br />
+              <input name="question5" type="radio" value="False">False<br />
+              <input class="True" type="button" value="Submit">
+            </form>
+          </div>
+       
+          <div id="question6" class="question 369" style="display: none;">
+            <form name="answer" action="">
+            The HIV virus contains DNA only (no RNA) <br/>
+              <input name="question6" type="radio" value="True">True<br />
+              <input name="question6" type="radio" value="False">False<br />
+              <input class="False" type="button" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script type='text/javascript'>
+    $(function() {
+    $('video,audio').mediaelementplayer({
+      features: ['playpause','progress','current','duration','tracks','volume', 'markers' ],
+      markers: [ 211, 217, 281, 295, 319, 369 ],
+      markerColor: '#f7f743',
+      alwaysShowControls: true
+    });
+      var pop = Popcorn("#ourvideo");
+
+      $.each($('.question'), function(index, value) {
+        var $value = $(value);
+
+        pop.code({
+          start: parseInt($value.attr('class').split(/\s+/)[1]),
+          onStart: function() {
+            this.pause();
+            $value.parent().children().hide();
+            $value.show();
+          }
+        });
+
+        $value.find('input[type=button]').on('click', function() {
+          if ($(this).attr('class') == $value.find('input[type=radio]:checked').val()) {
+            $value.hide();
+            alert('Correct!');
+            pop.play();
+          } else {
+            alert('Incorrect. Try again.');
+          }
+        });
+      });
+
+      $.ajax({ url: 'captions.json', type: 'GET',
+        success: function(data, textStatus, xhr) {
+          var $subtdiv = $('#subtitlediv');
+
+          $.each(data, function(index, subtitle) {
+            $subtdiv.append($('<div>').addClass('st ' + subtitle.seconds).html(subtitle.content));
+
+            pop.cue(subtitle.seconds, function() {
+              $('.st').removeClass('stbold');
+              var $elem = $subtdiv.find('.' + subtitle.seconds).addClass('stbold');
+              $subtdiv.scrollTop($elem.prev().prev().offset().top - $subtdiv.offset().top + $subtdiv.scrollTop());
+            });
+          });
+
+          $('.st').mouseover(function() { 
+              $(this).addClass('stitalic');
+            }).mouseout(function() {
+              $(this).removeClass('stitalic');
+            }).on('click', function() {
+              $('.st').removeClass('stbold');
+
+              var $this = $(this);
+              $this.addClass('stbold');
+              pop.currentTime(parseInt($this.attr('class').split(/\s+/)[1])).play();
+            });
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          alert(xhr.responseText);
+        }
+      });
+    });
+  </script>
+</html>
