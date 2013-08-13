@@ -56,7 +56,7 @@ Save that file as a ``` .txt ``` file, and put that filename in place in the ```
 
 * In the console, run the Python scripts: ``` python parse_srt.py ``` and ``` python add_popquest_assets.py ```.
 
-**Without hard-coding and tinkering with the JavaScript, more development is necessary for this point in the process**
+*[Without hard-coding and tinkering with the JavaScript, more development is necessary for this point in the process]*
 
 * Run the web server.
 
