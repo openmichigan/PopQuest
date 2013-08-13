@@ -19,13 +19,17 @@ Written primarily in JavaScript and HTML, with helper Python scripts, built on t
 * Python 2.7
 * a local web server (Tomcat, Apache, whatever you've got)
 
+The MediaElement video player files are included in this GitHub repository in, unsurprisingly, the ``` mediaelement ``` directory, so separate download is not necessary. If you use this directory structure, little alteration is needed within ``` start.html ```. If you change anything about the directory structure or need a different version of jQuery for further development, you may need to make your own changes.
+
 ## the who
 
 This was built at the University of Michigan's [MSIS Hack Day](http://msishackday.com) by a team including [Dave Malicke](https://github.com/dmalicke), Sashidhar Guduri, [Jackie Cohen](http://github.com/aerenchyma), Karen Kost, Margaret Ann Murphy, [Trisha Paul](http://illnessnarratives.com), and Johmarx Patton.
 
 ## the how
 
-* Clone the repository in the proper folder to be run on a web server (local or otherwise). Make sure the dependencies are in place. (Local copies of the JavaScript libraries are expected, but naturally that is alterable in the script.)
+*n.b. some of these directions (the questions text file in particular) is not yet implemented in the current version*
+
+* Clone the repository in the proper folder to be run on a web server (local or otherwise). Make sure the dependencies are in place. 
 
 * Save an ``` .srt ``` file of captions in the root directory. Call it ``` captions.srt ``` (or alter the ``` parse_srt.py ``` file to accommodate your new filename).
 
@@ -51,6 +55,8 @@ Save that file as a ``` .txt ``` file, and put that filename in place in the ```
 * Create another ``` .txt ``` file called ``` videourl.txt ```. Put the appropriate URL or path of an ``` .mp4 ``` video in this file, and nothing else.
 
 * In the console, run the Python scripts: ``` python parse_srt.py ``` and ``` python add_popquest_assets.py ```.
+
+**Without hard-coding and tinkering with the JavaScript, more development is necessary for this point in the process**
 
 * Run the web server.
 
